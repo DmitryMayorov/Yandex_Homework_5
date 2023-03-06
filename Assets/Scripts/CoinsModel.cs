@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinsController : MonoBehaviour
+public class CoinsModel : MonoBehaviour
 {
     [SerializeField] CoinsView _coinsView;
-
+    
     private int _amount;
 
     private void Awake()
     {
         _amount = PlayerPrefs.GetInt("Coins", 0);
 
-        _coinsView.VisualizeText—oins(_amount);
+        _coinsView.Show—oins(_amount);
     }
 
     public void OnPickupCoin()
@@ -21,7 +19,7 @@ public class CoinsController : MonoBehaviour
 
         PlayerPrefs.SetInt("Coins", _amount);
 
-        _coinsView.VisualizeText—oins(_amount);
+        _coinsView.Show—oins(_amount);
 
         _coinsView.OnPickupCoinAnimation();
     }
@@ -35,7 +33,7 @@ public class CoinsController : MonoBehaviour
 
         PlayerPrefs.SetInt("Coins", _amount);
 
-        _coinsView.VisualizeText—oins(_amount);
+        _coinsView.Show—oins(_amount);
 
         _coinsView.OnPickupCoinAnimation();
 

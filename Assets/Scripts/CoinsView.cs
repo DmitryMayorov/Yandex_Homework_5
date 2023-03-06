@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class CoinsView : MonoBehaviour
@@ -10,25 +8,13 @@ public class CoinsView : MonoBehaviour
 
     [SerializeField] private Animator _animator;
 
-    [SerializeField] private CoinsController _coinsController;
-
     private float AnimationTime = 0.5f;
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Coin")
-        {
-            _coinsController.OnPickupCoin();
-
-            Destroy(other.gameObject);
-        }
-    }
 
     public void OnPickupCoinAnimation()
     {
         _animator.SetBool("OnPickupCoin", true);
 
-        Invoke("FinishOnPickupCoinAnimation", AnimationTime);
+        Invoke("FinishOnPickupCoinAnimation", AnimationTime);   //Èñïîëüçóåò ìåòîä FinishOnPickupCoinAnimation()
     }
 
     public void FinishOnPickupCoinAnimation()
@@ -36,7 +22,7 @@ public class CoinsView : MonoBehaviour
         _animator.SetBool("OnPickupCoin", false);
     }
 
-    public void VisualizeTextÑoins(int amount)
+    public void ShowÑoins(int amount)
     {
         _render.text = $"Coins: {amount}";
     }
