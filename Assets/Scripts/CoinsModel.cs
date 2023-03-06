@@ -3,8 +3,9 @@ using UnityEngine;
 public class CoinsModel : MonoBehaviour
 {
     [SerializeField] CoinsView _coinsView;
-    
-    private int _amount;
+    [SerializeField] CompositeRoot _compositeRoot;
+
+    public static int _amount;
 
     private void Awake()
     {
@@ -17,7 +18,7 @@ public class CoinsModel : MonoBehaviour
     {
         _amount += 5;
 
-        PlayerPrefs.SetInt("Coins", _amount);
+        _compositeRoot.SaveAmountMoney();
 
         _coinsView.Show—oins(_amount);
 
@@ -31,7 +32,7 @@ public class CoinsModel : MonoBehaviour
 
         _amount -= price;
 
-        PlayerPrefs.SetInt("Coins", _amount);
+        _compositeRoot.SaveAmountMoney();
 
         _coinsView.Show—oins(_amount);
 
